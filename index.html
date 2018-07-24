@@ -12,11 +12,40 @@
     <div id="root"></div>
     <script type="text/babel">
         (()=>{
+
+            const todos = [
+                {id:0, title: 'Task 0', isDone: false},
+                {id:1, title: 'Task 1', isDone: false},
+                {id:2, title: 'Task 2', isDone: true},
+            ];
+
+            // make component of todo cos dont keep state 
+            function TodoList(props){
+                const todos = props.todos.map(todo=>{
+                    return (
+                        <li key={todo.id}>{todo.title}</li>
+                    );
+                });
+                return (
+                    <ul>
+                    {todos}
+                    </ul>
+                );
+            }
+
             class App extends React.Component{
+                // set state
+                constructor(){
+                    super(); //must call in the constructor
+                    this.state = {
+                        todos: todos //key : value
+                    }
+                }
                 render(){
                     return(
                         <div>
                             <h1>My Todos</h1>
+                            <TodoList todos={this.state.todos}/>
                         </div>
                     );
                 }
