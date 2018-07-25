@@ -19,6 +19,16 @@
                 {id:2, title: 'Task 2', isDone: true},
             ];
 
+            // make component of TodoItem
+            function TodoItem(props){
+                return(
+                    <li key={props.todo.id}>
+                        {props.todo.title}
+                    </li>
+                );
+            }
+
+
             // make component of todo cos dont keep state 
             function TodoList(props){
                 const todos = props.todos.map(todo=>{
