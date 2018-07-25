@@ -23,7 +23,11 @@
             function TodoList(props){
                 const todos = props.todos.map(todo=>{
                     return (
-                        <li key={todo.id}>{todo.title}</li>
+                        // <li key={todo.id}>{todo.title}</li>
+                        <TodoItem
+                        key={todo.id}
+                        todo={todo}
+                        />
                     );
                 });
                 return (
